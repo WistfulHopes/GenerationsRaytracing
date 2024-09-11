@@ -1,8 +1,0 @@
-{
-    "hlsl.additionalIncludeDirectories": [
-        "..\\GenerationsRaytracing.Shared",
-        "..\\..\\Dependencies\\self-intersection-avoidance",
-        "..\\..\\Dependencies\\ThreadGroupIDSwizzling",
-        "..\\..\\Dependencies\\nvapi"
-    ]
-}

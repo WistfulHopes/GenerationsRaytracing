@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>16.0</VCProjectVersion>
+    <Keyword>Win32Proj</Keyword>
+    <ProjectGuid>{c3aa70f3-7480-46e5-a30c-bc1e281b69e1}</ProjectGuid>
+    <RootNamespace>GenerationsUE5X86</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+    <Import Project="..\GenerationsUE5.Shared\GenerationsUE5.Shared.vcxitems" Label="Shared" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <OutDir>$(ProjectDir)bin\$(Configuration)\</OutDir>
+    <IntDir>$(ProjectDir)obj\$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <OutDir>$(ProjectDir)bin\$(Configuration)\</OutDir>
+    <IntDir>$(ProjectDir)obj\$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;WIN32_LEAN_AND_MEAN;NOMINMAX;_CRT_SECURE_NO_WARNINGS;IMGUI_DEFINE_MATH_OPERATORS;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>Pch.h</PrecompiledHeaderFile>
+      <ForcedIncludeFiles>Pch.h</ForcedIncludeFiles>
+      <AdditionalIncludeDirectories>$(SolutionDir)GenerationsUE5.Shared;$(SolutionDir)..\Dependencies;$(SolutionDir)..\Dependencies\BlueBlur;$(SolutionDir)..\Dependencies\Detours\include;$(SolutionDir)..\Dependencies\xxHash;$(SolutionDir)..\Dependencies\imgui;$(SolutionDir)..\Dependencies\implot;$(SolutionDir)..\Dependencies\im3d;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>$(SolutionDir)..\Dependencies\BlueBlur;$(SolutionDir)..\Dependencies\Detours\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>d3d9.lib;detours.lib;syelog.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;WIN32_LEAN_AND_MEAN;NOMINMAX;_CRT_SECURE_NO_WARNINGS;IMGUI_DEFINE_MATH_OPERATORS;_HAS_EXCEPTIONS=0;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>Pch.h</PrecompiledHeaderFile>
+      <ForcedIncludeFiles>Pch.h</ForcedIncludeFiles>
+      <ExceptionHandling>false</ExceptionHandling>
+      <AdditionalIncludeDirectories>$(SolutionDir)GenerationsUE5.Shared;$(SolutionDir)..\Dependencies;$(SolutionDir)..\Dependencies\BlueBlur;$(SolutionDir)..\Dependencies\Detours\include;$(SolutionDir)..\Dependencies\xxHash;$(SolutionDir)..\Dependencies\imgui;$(SolutionDir)..\Dependencies\implot;$(SolutionDir)..\Dependencies\im3d;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <StringPooling>true</StringPooling>
+      <InlineFunctionExpansion>Default</InlineFunctionExpansion>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <FloatingPointModel>Fast</FloatingPointModel>
+      <AdditionalOptions>/Ob3 %(AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>$(SolutionDir)..\Dependencies\BlueBlur;$(SolutionDir)..\Dependencies\Detours\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>d3d9.lib;detours.lib;syelog.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\Dependencies\xxHash\xxhash.c">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+      </ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+      </ForcedIncludeFiles>
+    </ClCompile>
+    <ClCompile Include="BaseTexture.cpp" />
+    <ClCompile Include="Camera.cpp" />
+    <ClCompile Include="FileBinder.cpp" />
+    <ClCompile Include="GroundSmokeParticle.cpp" />
+    <ClCompile Include="LightData.cpp" />
+    <ClCompile Include="Logger.cpp" />
+    <ClCompile Include="MemoryAllocator.cpp" />
+    <ClCompile Include="MeshData.cpp" />
+    <ClCompile Include="MetaInstancer.cpp" />
+    <ClCompile Include="ModelReplacer.cpp" />
+    <ClCompile Include="MotionData.cpp" />
+    <ClCompile Include="PlayableParam.cpp" />
+    <ClCompile Include="QuickBoot.cpp" />
+    <ClCompile Include="RaytracingUtil.cpp" />
+    <ClCompile Include="ModelData.cpp" />
+    <ClCompile Include="Configuration.cpp" />
+    <ClCompile Include="D3D9.cpp" />
+    <ClCompile Include="HalfPixel.cpp" />
+    <ClCompile Include="MaterialData.cpp" />
+    <ClCompile Include="PictureData.cpp" />
+    <ClCompile Include="Device.cpp" />
+    <ClCompile Include="FillTexture.cpp" />
+    <ClCompile Include="IndexBuffer.cpp" />
+    <ClCompile Include="MessageSender.cpp" />
+    <ClCompile Include="Mod.cpp" />
+    <ClCompile Include="Pch.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="PixelShader.cpp" />
+    <ClCompile Include="RaytracingParams.cpp" />
+    <ClCompile Include="RaytracingRendering.cpp" />
+    <ClCompile Include="Resource.cpp" />
+    <ClCompile Include="RopeRenderable.cpp" />
+    <ClCompile Include="SampleChunkResource.cpp" />
+    <ClCompile Include="ShaderCache.cpp" />
+    <ClCompile Include="ShareVertexBuffer.cpp" />
+    <ClCompile Include="Sofdec.cpp" />
+    <ClCompile Include="SonicPlayer.cpp" />
+    <ClCompile Include="SoundSystem.cpp" />
+    <ClCompile Include="StageSelection.cpp" />
+    <ClCompile Include="Surface.cpp" />
+    <ClCompile Include="TerrainData.cpp" />
+    <ClCompile Include="Texture.cpp" />
+    <ClCompile Include="InstanceData.cpp" />
+    <ClCompile Include="ToneMap.cpp" />
+    <ClCompile Include="TriangleStrip.cpp" />
+    <ClCompile Include="Unknown.cpp" />
+    <ClCompile Include="UpReelRenderable.cpp" />
+    <ClCompile Include="VertexBuffer.cpp" />
+    <ClCompile Include="VertexDeclaration.cpp" />
+    <ClCompile Include="VertexShader.cpp" />
+    <ClCompile Include="WallJumpBlock.cpp" />
+    <ClCompile Include="Window.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="BaseTexture.h" />
+    <ClInclude Include="Camera.h" />
+    <ClInclude Include="FileBinder.h" />
+    <ClInclude Include="Frustum.h" />
+    <ClInclude Include="GroundSmokeParticle.h" />
+    <ClInclude Include="InstanceType.h" />
+    <ClInclude Include="LightData.h" />
+    <ClInclude Include="Logger.h" />
+    <ClInclude Include="MemoryAllocator.h" />
+    <ClInclude Include="MeshData.h" />
+    <ClInclude Include="MeshOpt.h" />
+    <ClInclude Include="MetaInstancer.h" />
+    <ClInclude Include="OptimizedVertexData.h" />
+    <ClInclude Include="ModelReplacer.h" />
+    <ClInclude Include="MotionData.h" />
+    <ClInclude Include="PlayableParam.h" />
+    <ClInclude Include="QuickBoot.h" />
+    <ClInclude Include="RaytracingShader.h" />
+    <ClInclude Include="RaytracingStages.h" />
+    <ClInclude Include="RaytracingUtil.h" />
+    <ClInclude Include="ModelData.h" />
+    <ClInclude Include="Configuration.h" />
+    <ClInclude Include="D3D9.h" />
+    <ClInclude Include="HalfPixel.h" />
+    <ClInclude Include="MaterialData.h" />
+    <ClInclude Include="PictureData.h" />
+    <ClInclude Include="Device.h" />
+    <ClInclude Include="FillTexture.h" />
+    <ClInclude Include="IndexBuffer.h" />
+    <ClInclude Include="MessageSender.h" />
+    <ClInclude Include="Pch.h" />
+    <ClInclude Include="PixelShader.h" />
+    <ClInclude Include="RaytracingParams.h" />
+    <ClInclude Include="RaytracingRendering.h" />
+    <ClInclude Include="Resource.h" />
+    <ClInclude Include="RopeRenderable.h" />
+    <ClInclude Include="SampleChunkResource.h" />
+    <ClInclude Include="ShaderCache.h" />
+    <ClInclude Include="ShareVertexBuffer.h" />
+    <ClInclude Include="Sofdec.h" />
+    <ClInclude Include="SonicPlayer.h" />
+    <ClInclude Include="SoundSystem.h" />
+    <ClInclude Include="StageSelection.h" />
+    <ClInclude Include="Surface.h" />
+    <ClInclude Include="TerrainData.h" />
+    <ClInclude Include="Texture.h" />
+    <ClInclude Include="InstanceData.h" />
+    <ClInclude Include="ToneMap.h" />
+    <ClInclude Include="TriangleStrip.h" />
+    <ClInclude Include="Unknown.h" />
+    <ClInclude Include="UpReelRenderable.h" />
+    <ClInclude Include="VertexBuffer.h" />
+    <ClInclude Include="VertexDeclaration.h" />
+    <ClInclude Include="VertexShader.h" />
+    <ClInclude Include="WallJumpBlock.h" />
+    <ClInclude Include="Window.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="MessageSender.inl" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Update="C:\Repositories\GenerationsUE5\Source\GenerationsUE5.Shared\FreeListAllocator.inl">
+      <FileType>Document</FileType>
+    </None>
+    <None Update="C:\Repositories\GenerationsUE5\Source\GenerationsUE5.Shared\Mutex.inl">
+      <FileType>Document</FileType>
+    </None>
+    <None Update="C:\Repositories\GenerationsUE5\Source\GenerationsUE5.Shared\SubAllocator.inl">
+      <FileType>Document</FileType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\GenerationsUE5.X86.Dependencies\GenerationsUE5.X86.Dependencies.vcxproj">
+      <Project>{305b334c-12a4-43fb-824c-2b4420d9bd75}</Project>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
