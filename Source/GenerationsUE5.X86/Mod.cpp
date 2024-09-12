@@ -172,6 +172,11 @@ extern "C" void __declspec(dllexport) Init(ModInfo_t* modInfo)
     });
 }
 
+extern "C" void __declspec(dllexport) OnFrame()
+{
+    s_messageSender.commitMessages();
+}
+
 extern "C" void __declspec(dllexport) PostInit()
 {
     RaytracingRendering::postInit();

@@ -450,10 +450,10 @@ HRESULT Device::Present(const RECT* pSourceRect, const RECT* pDestRect, HWND hDe
         s_messageSender.endMessage();
     }
 
-    s_messageSender.makeMessage<MsgPresent>();
-    s_messageSender.endMessage();
+    // s_messageSender.makeMessage<MsgPresent>();
+    // s_messageSender.endMessage();
 
-    s_messageSender.commitMessages();
+    // s_messageSender.commitMessages();
 
     return S_OK;
 }

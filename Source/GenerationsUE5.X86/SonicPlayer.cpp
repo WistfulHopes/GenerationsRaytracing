@@ -57,8 +57,9 @@ HOOK(void, __fastcall, CPlayerSpeedUpdate, 0xE6BF20, Sonic::Player::CPlayerSpeed
 	{		
 		message.boneNames[i][0] = '\0';
 		strncat(message.boneNames[i], animationPose->m_spModelData->m_spNodes[i].m_Name.c_str(), 0xFF);
-		
-		auto boneMat = animationPose->GetMatrixList()[i];
+
+		auto bindMat = animationPose->m_spModelData->m_spNodeMatrices[i].m_Matrix;
+		auto boneMat = animationPose->GetMatrixList()[i] * bindMat.inverse();
 
 		message.boneMatrices[i][0] = boneMat.data()[0];
 		message.boneMatrices[i][1] = boneMat.data()[1];
