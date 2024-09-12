@@ -606,22 +606,6 @@ struct MsgSonicInit
     bool bIsModern;
 };
 
-struct BoneTransform
-{
-    float posX;
-    float posY;
-    float posZ;
-    
-    float rotX;
-    float rotY;
-    float rotZ;
-    float rotW;
-    
-    float sclX;
-    float sclY;
-    float sclZ;
-};
-
 struct MsgSonicUpdate
 {
     MSG_DEFINE_MESSAGE(MsgSonicInit);
@@ -632,7 +616,7 @@ struct MsgSonicUpdate
 
     int boneCount = 0;
     char boneNames[0xFF][0x40];
-    BoneTransform boneTransforms[0xFF];
+    float boneMatrices[0xFF][0x10];
 };
 
 struct MsgCameraUpdate

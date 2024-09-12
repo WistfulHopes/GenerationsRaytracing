@@ -54,26 +54,28 @@ HOOK(void, __fastcall, CPlayerSpeedUpdate, 0xE6BF20, Sonic::Player::CPlayerSpeed
 	message.boneCount = animationPose->m_numBones;
 	
 	for (int i = 0; i < message.boneCount; i++)
-	{
-		Hedgehog::Math::CMatrix boneMat;
-		
+	{		
 		message.boneNames[i][0] = '\0';
-		strncat(message.boneNames[i], skeleton->m_bones.GetIndex(i)->m_name.cString(), 0xFF);
+		strncat(message.boneNames[i], animationPose->m_spModelData->m_spNodes[i].m_Name.c_str(), 0xFF);
 		
-		auto boneTransform = animationPose->m_pAnimData->m_TransformArray.GetIndex(i);
+		auto boneMat = animationPose->GetMatrixList()[i];
 
-		message.boneTransforms[i].posX = boneTransform->m_Position.x();
-		message.boneTransforms[i].posY = boneTransform->m_Position.y();
-		message.boneTransforms[i].posZ = boneTransform->m_Position.z();
-
-		message.boneTransforms[i].rotX = boneTransform->m_Rotation.x();
-		message.boneTransforms[i].rotY = boneTransform->m_Rotation.y();
-		message.boneTransforms[i].rotZ = boneTransform->m_Rotation.z();
-		message.boneTransforms[i].rotW = boneTransform->m_Rotation.w();
-
-		message.boneTransforms[i].sclX = boneTransform->m_Scale.x();
-		message.boneTransforms[i].sclY = boneTransform->m_Scale.y();
-		message.boneTransforms[i].sclZ = boneTransform->m_Scale.z();
+		message.boneMatrices[i][0] = boneMat.data()[0];
+		message.boneMatrices[i][1] = boneMat.data()[1];
+		message.boneMatrices[i][2] = boneMat.data()[2];
+		message.boneMatrices[i][3] = boneMat.data()[3];
+		message.boneMatrices[i][4] = boneMat.data()[4];
+		message.boneMatrices[i][5] = boneMat.data()[5];
+		message.boneMatrices[i][6] = boneMat.data()[6];
+		message.boneMatrices[i][7] = boneMat.data()[7];
+		message.boneMatrices[i][8] = boneMat.data()[8];
+		message.boneMatrices[i][9] = boneMat.data()[9];
+		message.boneMatrices[i][10] = boneMat.data()[10];
+		message.boneMatrices[i][11] = boneMat.data()[11];
+		message.boneMatrices[i][12] = boneMat.data()[12];
+		message.boneMatrices[i][13] = boneMat.data()[13];
+		message.boneMatrices[i][14] = boneMat.data()[14];
+		message.boneMatrices[i][15] = boneMat.data()[15];
 	}
 	
 	s_messageSender.endMessage();
